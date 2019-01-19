@@ -30,7 +30,7 @@ public class TiVenueActivity extends AppCompatActivity {
         }else {
             //
         }
-        listOfMeetings = findViewById(R.id.list_of_meetings);
+        //listOfMeetings = findViewById(R.id.list_of_meetings);
 /*
         questionTextView = findViewById(R.id.question_text_view);
         button1 = findViewById(R.id.button1);

@@ -13,13 +13,6 @@
         android:paddingBottom="12.5dp"
         android:background="@color/colorPrimary"
         >
-        <!--<TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Здесь будут иконки"
-            android:gravity="center"
-            android:textColor="@color/colorWhite"
-            /> -->
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +24,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_group_add_white_50dp"
             android:paddingLeft="322.5dp"
-
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -41,35 +33,13 @@
             />
 
     </RelativeLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/color_text"
-        android:text="Здесь будет название события"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/border_for_meet"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/color_text"
-        android:text="Здесь будет название события2 Здесь будет название события2 Здесь будет название события2"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/border_for_meet"
-        />
-    <ListView
+
+    <FrameLayout
         android:id="@+id/list_of_meetings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </ListView>
+
+    </FrameLayout>
 
 </LinearLayout>
 
