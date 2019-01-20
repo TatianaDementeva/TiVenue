@@ -96,5 +96,10 @@ public class MeetingPresenter implements IMeetingPresenter {
             view.setMeetingTitleTextView(title);
         }
     }
+
+    @Override
+    public void clickBack() {
+        view.openListOfMeetings();
+    }
     //endregion
 }

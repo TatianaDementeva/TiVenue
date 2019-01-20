@@ -9,4 +9,7 @@ interface IMeetingView extends IBaseView<IMeetingPresenter> {
     void setMeetingDescriptionTextView(String description);
     void setMeetingIDTextView(String meetingId);
     void setMeetingParticipantsTextView(String participants);
+
+    //test
+    void openListOfMeetings();
 }

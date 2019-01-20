@@ -2,6 +2,8 @@ package com.nsu.tatianadementeva.tivenue.modules.meeting;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.widget.ImageView;
+
 import com.nsu.tatianadementeva.tivenue.R;
 import com.nsu.tatianadementeva.tivenue.common.UseCaseHandler;
 import com.nsu.tatianadementeva.tivenue.data.meetings.MeetingsFakeDataSource;

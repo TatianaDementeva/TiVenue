@@ -1,13 +1,16 @@
 package com.nsu.tatianadementeva.tivenue.modules.meeting;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.nsu.tatianadementeva.tivenue.R;
+import com.nsu.tatianadementeva.tivenue.modules.ListOfMeetings.TiVenueActivity;
 
 public class MeetingFragment extends Fragment implements IMeetingView {
 
@@ -52,6 +55,10 @@ public class MeetingFragment extends Fragment implements IMeetingView {
         meetingDescriptionTextView = view.findViewById(R.id.meeting_description_text);
         meetingIDTextView = view.findViewById(R.id.meeting_id_text);
         meetingParticipantsTextView = view.findViewById(R.id.meeting_participants_text);
+
+        ImageView arrow_back = view.findViewById(R.id.ic_arrow_left);
+
+        arrow_back.setOnClickListener(v -> presenter.clickBack());
     }
     //endregion
 
@@ -89,6 +96,12 @@ public class MeetingFragment extends Fragment implements IMeetingView {
     @Override
     public void setMeetingParticipantsTextView(String participants) {
         meetingParticipantsTextView.setText(participants);
+    }
+//test
+    @Override
+    public void openListOfMeetings() {
+        Intent intent = new Intent(getContext(), TiVenueActivity.class);
+        startActivity(intent);
     }
     //endregion
 }
