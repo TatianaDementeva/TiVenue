@@ -1,15 +1,15 @@
 package com.nsu.tatianadementeva.tivenue.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 public class Meeting {
+
     //region Private properties
     private UUID uuid;
     private String name;
     private Person organizer;
-    private Date finalDate;
+    private String finalDate;
     private String description;
     private ArrayList<Person> participants;
     //endregion
@@ -21,6 +21,7 @@ public class Meeting {
         this.organizer = organizer;
         this.description = description;
         this.participants = participants;
+        this.finalDate = "";
     }
     //endregion
 
@@ -37,7 +38,7 @@ public class Meeting {
         return organizer;
     }
 
-    public Date getFinalDate() {
+    public String getFinalDate() {
         return finalDate;
     }
 
@@ -49,5 +50,4 @@ public class Meeting {
         return participants;
     }
     //endregion
-
 }

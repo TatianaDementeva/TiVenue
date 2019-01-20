@@ -1,12 +1,28 @@
 <resources>
     <string name="app_name">TiVenue</string>
 
-    <string name="question_text">Hello, World!</string>
-    <string name="button_1">1</string>
-    <string name="button_2">2</string>
-    <string name="button_3">3</string>
-    <string name="button_4">4</string>
+    <string name="meeting_name">ВСТРЕЧА</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="meeting_organizer">Организатор:</string>
+    <string name="meeting_final_date">Дата встречи:</string>
+    <string name="meeting_date_and_time">Ввести дату и время:</string>
+
+    <string name="string_date_1">Дата (dd.mm.yyyy)</string>
+    <string name="string_time_1">Время (hh.mm)</string>
+
+    <string name="meeting_id">ID встречи:</string>
+    <string name="meeting_description">Описание:</string>
+    <string name="meeting_participants">Участники:</string>
+
+
+    <string name="menu">menu</string>
+    <string name="group_add">group_add</string>
+    <string name="create_meeting">create_meeting</string>
+    <string name="arrow_left">arrow_left</string>
+    <string name="name_organizer">Имя организатора</string>
+    <string name="date">Дата</string>
+    <string name="description">Описание</string>
+    <string name="id_meeting">id встречи</string>
+    <string name="participants">Участники</string>
+    <string name="title_meeting_on_list">Здесь будет название события</string>
 </resources>

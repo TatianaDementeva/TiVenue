@@ -3,7 +3,6 @@ package com.nsu.tatianadementeva.tivenue.modules.ListOfMeetings;
 import com.nsu.tatianadementeva.tivenue.common.IUseCaseCallback;
 import com.nsu.tatianadementeva.tivenue.common.UseCaseHandler;
 import com.nsu.tatianadementeva.tivenue.model.Meeting;
-
 import java.util.ArrayList;
 
 public class ListOfMeetingsPresenter implements IListOfMeetingsPresenter {
@@ -18,7 +17,7 @@ public class ListOfMeetingsPresenter implements IListOfMeetingsPresenter {
     //endregion
 
     //region Initialization
-    public ListOfMeetingsPresenter(IListOfMeetingsView view, UseCaseHandler useCaseHandler, GetMeetings getMeetings) {
+    ListOfMeetingsPresenter(IListOfMeetingsView view, UseCaseHandler useCaseHandler, GetMeetings getMeetings) {
         this.view = view;
         this.useCaseHandler = useCaseHandler;
         this.getMeetings = getMeetings;
@@ -29,6 +28,11 @@ public class ListOfMeetingsPresenter implements IListOfMeetingsPresenter {
     @Override
     public void start() {
         loadMeetings();
+    }
+
+    @Override
+    public void clickOnMeeting(Meeting meeting) {
+        view.openMeetingFullScreen(meeting.getUuid().toString());
     }
     //endregion
 
@@ -44,9 +48,7 @@ public class ListOfMeetingsPresenter implements IListOfMeetingsPresenter {
             }
 
             @Override
-            public void onError() {
-
-            }
+            public void onError() {}
         });
     }
 
@@ -54,6 +56,5 @@ public class ListOfMeetingsPresenter implements IListOfMeetingsPresenter {
         view.showMeetings(meetings);
     }
     //endregion
-
 
 }

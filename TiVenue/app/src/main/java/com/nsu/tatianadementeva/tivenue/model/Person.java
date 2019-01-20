@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Person {
+
     //region Private properties
     private UUID uuid;
     private String name;

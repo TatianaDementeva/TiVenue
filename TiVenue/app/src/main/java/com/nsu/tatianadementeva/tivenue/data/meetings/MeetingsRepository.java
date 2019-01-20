@@ -1,5 +1,7 @@
 package com.nsu.tatianadementeva.tivenue.data.meetings;
 
+import java.util.UUID;
+
 public class MeetingsRepository implements IMeetingsDataSource {
 
     //region Data sources
@@ -17,6 +19,13 @@ public class MeetingsRepository implements IMeetingsDataSource {
     public void getMeetings(ILoadMeetingsCallback callback) {
         if(null != callback){
             meetingsFakeDataSource.getMeetings(callback);
+        }
+    }
+
+    @Override
+    public void getMeeting(UUID meetingId, ILoadMeetingCallback callback) {
+        if(null != callback){
+            meetingsFakeDataSource.getMeeting(meetingId, callback);
         }
     }
     //endregion

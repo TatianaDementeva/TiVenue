@@ -8,13 +8,12 @@ public abstract class UseCase<RequestType extends UseCase.RequestValues,
     private IUseCaseCallback<ResponseType> useCaseCallback;
     //endregion
 
-
     //region Getters and Setters
     public IUseCaseCallback<ResponseType> getUseCaseCallback() {
         return useCaseCallback;
     }
 
-    public void setUseCaseCallback(IUseCaseCallback<ResponseType> useCaseCallback) {
+    void setUseCaseCallback(IUseCaseCallback<ResponseType> useCaseCallback) {
         this.useCaseCallback = useCaseCallback;
     }
 
@@ -22,13 +21,13 @@ public abstract class UseCase<RequestType extends UseCase.RequestValues,
         return requestValues;
     }
 
-    public void setRequestValues(RequestType requestValues) {
+    void setRequestValues(RequestType requestValues) {
         this.requestValues = requestValues;
     }
     //endregion
 
     //region Public interface
-    public void run(){
+    void run(){
         executeUseCase(requestValues);
     }
     //endregion

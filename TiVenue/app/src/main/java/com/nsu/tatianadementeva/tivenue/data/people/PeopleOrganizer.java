@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 public final class PeopleOrganizer {
 
-    public PeopleOrganizer() {
-
-    }
+    public PeopleOrganizer() {}
 
     public static ArrayList<Person> peoples() {
         Person person1 = new Person("Татьяна Дементьева", "t.dementeva@g.nsu.ru", "hfjkbfh");

@@ -1,7 +1,6 @@
 package com.nsu.tatianadementeva.tivenue.common;
 
 import android.os.Handler;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -18,9 +17,9 @@ public class UseCaseThreadPoolScheduler implements IUseCaseScheduler {
     //endregion
 
     //region Initialization
-    public UseCaseThreadPoolScheduler() {
+    UseCaseThreadPoolScheduler() {
         this.threadPoolExecutor = new ThreadPoolExecutor(POOL_SIZE, MAX_POOL_SIZE, TIMEOUT,
-                TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(POOL_SIZE));
+                TimeUnit.SECONDS, new ArrayBlockingQueue<>(POOL_SIZE));
     }
     //endregion
 
@@ -32,22 +31,12 @@ public class UseCaseThreadPoolScheduler implements IUseCaseScheduler {
 
     @Override
     public <T extends UseCase.ResponseValues> void onResponse(final T response, final IUseCaseCallback<T> callback) {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                callback.onSuccess(response);
-            }
-        });
+        handler.post(() -> callback.onSuccess(response));
     }
 
     @Override
     public <T extends UseCase.ResponseValues> void onError(final IUseCaseCallback<T> callback) {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                callback.onError();
-            }
-        });
+        handler.post(callback::onError);
     }
     //endregion
 }

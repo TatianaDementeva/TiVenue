@@ -8,7 +8,7 @@ public class UseCaseCallbackWrapper<T extends UseCase.ResponseValues> implements
     //endregion
 
     //region Initialization
-    public UseCaseCallbackWrapper(IUseCaseCallback<T> callback, UseCaseHandler useCaseHandler) {
+    UseCaseCallbackWrapper(IUseCaseCallback<T> callback, UseCaseHandler useCaseHandler) {
         this.callback = callback;
         this.useCaseHandler = useCaseHandler;
     }

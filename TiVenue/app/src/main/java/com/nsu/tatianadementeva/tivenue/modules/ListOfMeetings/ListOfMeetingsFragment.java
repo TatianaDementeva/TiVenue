@@ -1,6 +1,8 @@
 package com.nsu.tatianadementeva.tivenue.modules.ListOfMeetings;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.nsu.tatianadementeva.tivenue.R;
 import com.nsu.tatianadementeva.tivenue.model.Meeting;
+import com.nsu.tatianadementeva.tivenue.modules.meeting.MeetingActivity;
 
 import java.util.ArrayList;
 
@@ -20,12 +21,11 @@ public class ListOfMeetingsFragment extends Fragment implements IListOfMeetingsV
     //region Private initials
     private IListOfMeetingsPresenter presenter;
     private RecyclerView meetingRecyclerView;
-    private MeetingAdapter meetingAdapter;
     //endregion
 
     //region Lifecycle
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_of_meetings, container, false);
 
         meetingRecyclerView = view.findViewById(R.id.list_of_meetings_recycler_view);
@@ -41,9 +41,6 @@ public class ListOfMeetingsFragment extends Fragment implements IListOfMeetingsV
     }
     //endregion
 
-
-
-
     //region IListOfMeetingsView
     @Override
     public void setPresenter(IListOfMeetingsPresenter presenter) {
@@ -52,10 +49,17 @@ public class ListOfMeetingsFragment extends Fragment implements IListOfMeetingsV
 
     @Override
     public void showMeetings(ArrayList<Meeting> meetings) {
-        meetingAdapter = new MeetingAdapter(meetings);
+        MeetingAdapter meetingAdapter = new MeetingAdapter(meetings);
         meetingRecyclerView.setAdapter(meetingAdapter);
     }
 
+    @Override
+    public void openMeetingFullScreen(String meetingId) {
+        Intent intent = new Intent(getContext(), MeetingActivity.class);
+        intent.putExtra(MeetingActivity.EXTRA_MEETING_ID, meetingId);
+        startActivity(intent);
+
+    }
     //endregion
 
     //region MeetingHolder
@@ -64,7 +68,7 @@ public class ListOfMeetingsFragment extends Fragment implements IListOfMeetingsV
         private TextView titleTextView;
         private Meeting meeting;
 
-        public MeetingHolder(LayoutInflater inflater, ViewGroup parent) {
+        MeetingHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.meeting_on_list, parent, false));
 
             itemView.setOnClickListener(this);
@@ -72,14 +76,14 @@ public class ListOfMeetingsFragment extends Fragment implements IListOfMeetingsV
             titleTextView = itemView.findViewById(R.id.title_of_meeting_on_list);
         }
 
-        public void bind(Meeting meeting){
+        void bind(Meeting meeting){
             this.meeting = meeting;
             titleTextView.setText(meeting.getName());
         }
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getActivity(),"Click!", Toast.LENGTH_SHORT).show();
+            presenter.clickOnMeeting(meeting);
         }
     }
     //endregion
@@ -88,18 +92,19 @@ public class ListOfMeetingsFragment extends Fragment implements IListOfMeetingsV
     private class MeetingAdapter extends RecyclerView.Adapter<MeetingHolder> {
         private ArrayList<Meeting> meetings;
 
-        public MeetingAdapter(ArrayList<Meeting> meetings){
+        MeetingAdapter(ArrayList<Meeting> meetings){
             this.meetings = meetings;
         }
 
+        @NonNull
         @Override
-        public MeetingHolder onCreateViewHolder(ViewGroup parent, int ViewType) {
+        public MeetingHolder onCreateViewHolder(@NonNull ViewGroup parent, int ViewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             return new MeetingHolder(inflater, parent);
         }
 
         @Override
-        public void onBindViewHolder(MeetingHolder meetingHolder, int position) {
+        public void onBindViewHolder(@NonNull MeetingHolder meetingHolder, int position) {
             Meeting meeting = meetings.get(position);
             meetingHolder.bind(meeting);
         }

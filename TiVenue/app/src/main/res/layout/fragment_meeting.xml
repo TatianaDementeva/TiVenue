@@ -1,14 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/meeting_page"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".modules.meeting.MeetingFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/menu_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:paddingTop="12.5dp"
+        android:paddingBottom="12.5dp"
+        android:background="@color/colorPrimary"
+        >
+        <TextView
+            android:id="@+id/meeting_title"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:text="@string/meeting_name"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/ic_arrow_left"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorWhite"
+            />
+        <ImageView
+            android:id="@+id/ic_arrow_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_white_25dp"
+            android:paddingStart="12.5dp"
+            android:contentDescription="@string/arrow_left"
+            tools:ignore="RtlSymmetry" />
+    </RelativeLayout>
 
-</FrameLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/meeting_parameters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12.5dp"
+            android:paddingBottom="12.5dp" >
+
+            <TextView
+                android:id="@+id/meeting_organizer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/meeting_organizer"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="normal"
+                tools:ignore="RtlHardcoded" />
+            <TextView
+                android:id="@+id/meeting_organizer_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart = "150dp"
+                android:text="@string/name_organizer"
+                android:textColor="@color/color_text"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@id/meeting_organizer"/>
+
+            <TextView
+                android:id="@+id/meeting_final_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/meeting_final_date"
+                android:layout_below="@id/meeting_organizer_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="normal"
+                tools:ignore="RtlHardcoded" />
+            <TextView
+                android:id="@+id/meeting_final_date_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart = "150dp"
+                android:layout_below="@id/meeting_organizer_text"
+                android:text="@string/date"
+                android:textColor="@color/color_text"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@id/meeting_final_date"/>
+
+            <TextView
+                android:id="@+id/meeting_date_and_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/meeting_date_and_time"
+                android:layout_below="@id/meeting_final_date_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="normal"
+                tools:ignore="RtlHardcoded" />
+
+            <EditText
+                android:id="@+id/date_1"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="15dp"
+                android:ems="14"
+                android:layout_below="@id/meeting_date_and_time"
+                android:inputType="date"
+                android:hint="@string/string_date_1"
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
+            <EditText
+                android:id="@+id/time_1"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="191dp"
+                android:ems="14"
+                android:layout_below="@id/meeting_date_and_time"
+                android:inputType="date"
+                android:hint="@string/string_time_1"
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/date_2"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="15dp"
+                android:ems="14"
+                android:layout_below="@id/date_1"
+                android:inputType="date"
+                android:hint="@string/string_date_1"
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
+            <EditText
+                android:id="@+id/time_2"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="191dp"
+                android:ems="14"
+                android:layout_below="@id/time_1"
+                android:inputType="date"
+                android:hint="@string/string_time_1"
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/date_3"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="15dp"
+                android:ems="14"
+                android:layout_below="@id/date_2"
+                android:inputType="date"
+                android:hint="@string/string_date_1"
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
+            <EditText
+                android:id="@+id/time_3"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="191dp"
+                android:ems="14"
+                android:layout_below="@id/time_2"
+                android:inputType="date"
+                android:hint="@string/string_time_1"
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/meeting_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/meeting_description"
+                android:layout_below="@id/date_3"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="normal"
+                tools:ignore="RtlHardcoded" />
+            <TextView
+                android:id="@+id/meeting_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/date_3"
+                android:layout_marginStart="150dp"
+                android:padding="12.5dp"
+                android:text="@string/description"
+                android:textColor="@color/color_text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@id/meeting_description"/>
+
+            <TextView
+                android:id="@+id/meeting_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/meeting_id"
+                android:layout_below="@id/meeting_description_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="normal"
+                tools:ignore="RtlHardcoded" />
+            <TextView
+                android:id="@+id/meeting_id_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart = "150dp"
+                android:layout_below="@id/meeting_description_text"
+                android:text="@string/id_meeting"
+                android:textColor="@color/color_text"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@id/meeting_id"/>
+
+
+            <TextView
+                android:id="@+id/meeting_participants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/meeting_participants"
+                android:layout_below="@id/meeting_id_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="normal"
+                tools:ignore="RtlHardcoded" />
+            <TextView
+                android:id="@+id/meeting_participants_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart = "150dp"
+                android:layout_below="@id/meeting_id_text"
+                android:text="@string/participants"
+                android:textColor="@color/color_text"
+                android:textSize="17sp"
+                android:padding="12.5dp"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@id/meeting_participants"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
