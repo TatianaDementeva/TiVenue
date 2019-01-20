@@ -14,18 +14,21 @@
         android:background="@color/colorPrimary"
         >
         <ImageView
+            android:id="@+id/menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_menu_white_25dp"
             android:paddingLeft="12.5dp"
             />
         <ImageView
+            android:id="@+id/group_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_group_add_white_50dp"
             android:paddingLeft="322.5dp"
             />
         <ImageView
+            android:id="@+id/create_meeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_mode_edit_white_50dp"
@@ -35,10 +38,10 @@
     </RelativeLayout>
 
     <FrameLayout
-        android:id="@+id/list_of_meetings"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
     </FrameLayout>
 
 </LinearLayout>

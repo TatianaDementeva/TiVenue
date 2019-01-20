@@ -19,7 +19,7 @@ public class Person {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.meetings = null;
+        this.meetings = new ArrayList<>();
     }
     //endregion
 

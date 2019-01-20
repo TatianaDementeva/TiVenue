@@ -1,4 +1,6 @@
-package com.nsu.tatianadementeva.tivenue.model;
+package com.nsu.tatianadementeva.tivenue.data.people;
+
+import com.nsu.tatianadementeva.tivenue.model.Person;
 
 import java.util.ArrayList;
 
@@ -8,7 +10,7 @@ public final class PeopleOrganizer {
 
     }
 
-    public ArrayList<Person> peoples() {
+    public static ArrayList<Person> peoples() {
         Person person1 = new Person("Татьяна Дементьева", "t.dementeva@g.nsu.ru", "hfjkbfh");
         Person person2 = new Person("Юлия Гуля", "i.gulia@g.nsu.ru", "jhdfnvbndk");
         Person person3 = new Person("Юлия Красник", "i.krasnic@g.nsu.ru", "gvjfhdbn");
